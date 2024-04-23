@@ -1,0 +1,10 @@
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/DisposalGuidelines.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/DisposalGuidelinesRepo.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/controller/RecyclingTipsController.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/RecyclingTips.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/controller/WasteCategoryLookUpController.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/RecyclingTipsRepo.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/controller/DisposalGuidelinesController.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/WasteCategoryLookUpRepository.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/WasteSortingApplication.java
+/home/nothando/Downloads/WasteSortingApplication/src/main/java/com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/WasteCategoryLookUp.java

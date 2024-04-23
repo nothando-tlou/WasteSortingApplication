@@ -1,0 +1,9 @@
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/controller/DisposalGuidelinesController.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/DisposalGuidelines.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/WasteCategoryLookUpRepository.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/RecyclingTips.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/model/WasteCategoryLookUp.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/DisposalGuidelinesRepo.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/WasteSortingApplication.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/controller/WasteCategoryLookUpController.class
+com/enviro/assessment/grad001/nothandotlou/WasteSortingApplication/api/repository/RecyclingTipsRepo.class
