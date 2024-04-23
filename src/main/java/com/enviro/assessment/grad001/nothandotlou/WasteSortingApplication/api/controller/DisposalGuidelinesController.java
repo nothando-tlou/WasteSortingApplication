@@ -18,7 +18,7 @@ public class DisposalGuidelinesController {
     @Autowired
     private DisposalGuidelinesRepository disposalGuidelinesRepository;
 
-    @GetMapping // Reading 
+    @GetMapping // Reading
     public ResponseEntity<List<DisposalGuidelines>> getAllDisposalGuidelines() {
         // Retrieving all disposal guidelines from the repository
         List<DisposalGuidelines> disposalGuidelines = disposalGuidelinesRepository.findAll();
@@ -28,7 +28,9 @@ public class DisposalGuidelinesController {
 
     @PostMapping // Creating
     public ResponseEntity<DisposalGuidelines> createDisposalGuideline(@Valid @RequestBody DisposalGuidelines disposalGuideline) {
+        //this will save the newly created disposal guideline
         DisposalGuidelines createdDisposalGuideline = disposalGuidelinesRepository.save(disposalGuideline);
+        //This will also retrieve and respond with data , bring back status of the guideline .
         return ResponseEntity.status(HttpStatus.CREATED).body(createdDisposalGuideline);
     }
 

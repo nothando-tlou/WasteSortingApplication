@@ -35,5 +35,4 @@
 //        assertEquals(wasteCategories, response.getBody());
 //    }
 //
-//    // Write similar tests for other controller methods
 //}
