@@ -36,7 +36,7 @@ public class WasteRepositoryTests {
     }
 
     @Test
-    public void WasteCategoryRepository_GetAll_ReturnMoreThanOneCategory(){
+    public void WasteCategoryRepository_getAll_ReturnMoreThanOneCategory(){
         //Arrange
         WasteCategory wasteCategory = WasteCategory.builder()
                 .name("plastic")
@@ -55,5 +55,18 @@ public class WasteRepositoryTests {
         Assertions.assertThat(wasteCategoryList).isNotNull();
         Assertions.assertThat(wasteCategoryList.size()).isEqualTo(2);
 
+    }
+
+    @Test
+    public void WasteCategoryRepository_findById_ReturnsMoreThanOneCategory(){
+        WasteCategory wasteCategory = WasteCategory.builder()
+                .name("plastic")
+                .name("plastic bottles")
+                .build();
+        repository.save(wasteCategory);
+
+        WasteCategory returnCategory = repository.findById(wasteCategory.getId()).get();
+
+        Assertions.assertThat(returnCategory).isNotNull();
     }
 }
