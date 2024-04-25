@@ -10,7 +10,9 @@ import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.sql.PreparedStatement;
 import java.util.List;
+import java.util.Optional;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
@@ -39,11 +41,10 @@ public class WasteRepositoryTests {
     public void WasteCategoryRepository_getAll_ReturnMoreThanOneCategory(){
         //Arrange
         WasteCategory wasteCategory = WasteCategory.builder()
-                .name("plastic")
-                .name("water bottles").build();
+                .name("plastic").build();
         WasteCategory wasteCategory1 = WasteCategory.builder()
-                .name("glass")
-                .name("glass bottles").build();
+                .name("glass").build();
+
 
         //Act
         repository.save(wasteCategory);
@@ -58,10 +59,9 @@ public class WasteRepositoryTests {
     }
 
     @Test
-    public void WasteCategoryRepository_findById_ReturnsMoreThanOneCategory(){
+    public void WasteCategoryRepository_findById_ReturnsCategory(){
         WasteCategory wasteCategory = WasteCategory.builder()
                 .name("plastic")
-                .name("plastic bottles")
                 .build();
         repository.save(wasteCategory);
 
@@ -69,4 +69,48 @@ public class WasteRepositoryTests {
 
         Assertions.assertThat(returnCategory).isNotNull();
     }
+
+    @Test
+    public void WasteCategoryRepository_findByName_ReturnsCategoryNotNull(){
+        WasteCategory wasteCategory = WasteCategory.builder()
+                .name("plastic")
+                .build();
+        repository.save(wasteCategory);
+
+        WasteCategory returnCategory = repository.findByName(wasteCategory.getName()).get();
+
+        Assertions.assertThat(returnCategory).isNotNull();
+    }
+
+    @Test
+    public void WasteCategoryRepository_UpdateCategory_ReturnsCategoryNotNull(){
+        WasteCategory wasteCategory = WasteCategory.builder()
+                .name("plastic")
+                .build();
+        repository.save(wasteCategory);
+
+        WasteCategory categorySave = repository.findById(wasteCategory.getId()).get();
+        categorySave.setName("glass");
+
+        WasteCategory updatedWasteCategory = repository.save(categorySave);
+
+        Assertions.assertThat(updatedWasteCategory.getName()).isNotNull();
+    }
+
+    @Test
+    public void WasteCategoryRepository_deleteCategory_ReturnsCategoryIsEmpty(){
+        WasteCategory wasteCategory = WasteCategory.builder()
+                .name("plastic")
+                .build();
+        repository.save(wasteCategory);
+
+        repository.deleteById(wasteCategory.getId());
+        Optional<WasteCategory> wasteReturn = repository.findById(wasteCategory.getId());
+
+        Assertions.assertThat(wasteReturn).isEmpty();
+    }
+
+    
+
+
 }
