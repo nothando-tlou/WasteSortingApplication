@@ -30,7 +30,7 @@ public class DisposalGuidelinesController {
     public ResponseEntity<DisposalGuidelines> createDisposalGuideline(@Valid @RequestBody DisposalGuidelines disposalGuideline) {
         //this will save the newly created disposal guideline
         DisposalGuidelines createdDisposalGuideline = disposalGuidelinesRepository.save(disposalGuideline);
-        //This will also retrieve and respond with data , bring back status of the guideline .
+        //This will also retrieve and respond with data , bring back status of the guideline
         return ResponseEntity.status(HttpStatus.CREATED).body(createdDisposalGuideline);
     }
 
