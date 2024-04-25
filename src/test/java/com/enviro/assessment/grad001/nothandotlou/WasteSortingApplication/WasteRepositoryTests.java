@@ -10,6 +10,8 @@ import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class WasteRepositoryTests {
@@ -31,5 +33,27 @@ public class WasteRepositoryTests {
         //Assert
         Assertions.assertThat(savedCategory).isNotNull();
         Assertions.assertThat(savedCategory.getId()).isGreaterThan(0);
+    }
+
+    @Test
+    public void WasteCategoryRepository_GetAll_ReturnMoreThanOneCategory(){
+        //Arrange
+        WasteCategory wasteCategory = WasteCategory.builder()
+                .name("plastic")
+                .name("water bottles").build();
+        WasteCategory wasteCategory1 = WasteCategory.builder()
+                .name("glass")
+                .name("glass bottles").build();
+
+        //Act
+        repository.save(wasteCategory);
+        repository.save(wasteCategory1);
+
+        List<WasteCategory> wasteCategoryList = repository.findAll();
+
+        //Assert
+        Assertions.assertThat(wasteCategoryList).isNotNull();
+        Assertions.assertThat(wasteCategoryList.size()).isEqualTo(2);
+
     }
 }
